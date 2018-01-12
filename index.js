@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const axios = require('axios')
-const btcUrl = 'https://api.blockcypher.com/v1/btc/test3'
+const btcUrl = 'https://api.blockcypher.com/v1/btc/main'
 
 app.get("/btc/balance/:addrs", (req, res) => {
     const addrsBTC = req.params.addrs
@@ -10,7 +10,8 @@ app.get("/btc/balance/:addrs", (req, res) => {
             //        console.log(response.data.url);
             //        console.log(response.data.explanation);
             res.header("Access-Control-Allow-Origin", "*")
-            res.json({ balance: response.data.final_balance / 10 ** 8 })
+                //            res.json({ balance: response.data.final_balance / 10 ** 8 })
+            res.json({ balance: response.data.balance / 10 ** 8 }) //for my transaction
         })
         .catch(error => {
             console.log(error);

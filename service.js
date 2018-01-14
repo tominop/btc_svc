@@ -1,3 +1,10 @@
+ /*!
+ * @title btc_svc BTC API microservice for mainnet
+ * @author Oleg Tomin - <ot@limex.io>
+ * @dev Basic implementaion of BTC API functions  
+ * MIT Licensed Copyright(c) 2018-2019
+ */
+
 const express = require("express")
 const app = express()
 const axios = require('axios')
@@ -18,8 +25,11 @@ app.get("/btc/balance/:addrs", (req, res) => {
         });
 })
 
+
+
+
 const port = process.env.PORT_BTC || 8100
 
 app.listen(port, () => {
-    console.log(`btc_svc listening on ${port}`)
+    console.log(`Microservice btc_svc listening on ${port}`)
 })
